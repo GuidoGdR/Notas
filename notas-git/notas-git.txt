@@ -1,0 +1,101 @@
+"BASH GIT" utiliza comandos de BASH
+------------------------------------
+
+git --help: despliegue de manual rapido
+
+git -init: inicializa (en la carpeta actual)como un nuevo proyecto que se gestionara con git (crea la 
+carpeta .git y su contenido)
+
+git status: retorna el estado actual de nuestro repositorio (repositorio creado en la carpeta que almacena
+los archivos .git anteriormente creados con git -init)
+    -s: muestra mucho menos texto sin perder mucha funcionalidad
+
+Por defecto git no sigue todos los archivos que coloquemos en nuestra carpeta
+-----------------------------------------------------------------------------
+
+
+
+______________________________________________________________
+PC-1    //stage-2   //commit-3  //server-4
+
+1-principalmente: archivos que git no sigue
+
+2-Etapa donde se seleccionan los cambios que: posteriormente queremos comprometer (para subir al server) y 
+los cambios que queremos posteriormente descartar
+
+3- Etapa donde se encuentran los archivos ya comprometidos 
+ 
+
+
+git add: selecciona los archivos que queremos pasar a la etapa de stage
+
+(Al implementar cambios: deberemos volver a utilizar git add para aplicar informarle a git que deseamos
+aplicar dichos cambios)
+
+git commit -m "descripcion de los cambios": selecciona los archivos que queremos comprometer y pasar a commit
+
+git push: pasa los archivos desde commit a el servidor 
+
+______________________________________________________________
+
+git restore: descarta los cambios realizados en el pc (fase 1)
+    --stage: descarta cambios realizado (pasa el cambio de la fase 2 a la 1)
+
+Si queremos borrar un arvhivo y que los cambios se apliquen en el servidor:
+--------------------------------------------------------------------------
+
+    Deberemos eliminar el archivo y posteriormente utilizar add para agregar el cambio a la etapa de stage
+
+    git rm: permite eliminar el archivo y aplicar automaticamente "git add" al cambio en el que se borra el
+    archivo
+
+Si queremos renombrar un archivo:
+--------------------------------
+    Se puede modificar el archivo y posteriormente aplicar ambos cambios
+
+    git mv: permite renombrar archivos y agregar los cambios a stage automaticamente
+
+
+Ignorar archivos (para que git no los suba y siempre los ignore):
+----------------------------------------------------------------
+    utilizado mayormente con el ".env" (nombre con el que se guarda normalmente el archivo que contiene
+    las variables de entorno)
+
+    Para indicarle a git que es lo que queremos ignorar debemos crear un archivo ".gitignore" en el cual
+    espesificaremos las carpetas y/o los archivos a ignorar
+
+    (el archivo .gitignore se debe agregar a stage y commit)
+
+
+Chequeodiferencias:
+------------------
+    git diff: retorna por consola todos los cambios realizados en los archivos (por si queremos revisar antes de 
+        pasar a stage)
+        para salir de la pantalla que muestra presionar q
+
+        --staged: muestra los cambios en fase de stage
+
+Chequeo historial:
+-----------------
+    git log: muestra el historial de todo el repositorio (muestra bastante info)
+        --oneline: indica el "titulo" de los commit y un hash unico para señalar cual es
+
+
+
+Ramificaciones y - de un proyecto:
+------------------
+    git branch: muestra en que rama nos encontramos actualmente
+
+    git checkout nombre-rama: nos lleva a la rama espesificada 
+        -b nombre-de-rama: crea una rama con el nombre espesificado
+            estandares: 
+
+            features/nombre-de-funcionalidad
+        
+            nombre de el tiket a arreglar ej: SS-4515
+
+    git merge nombre-de-rama: al ejecutarlo desde la rama main, trae los cambios de la rama espesificada
+    a la rama main desde donde lo ejecutamos.
+
+
+
