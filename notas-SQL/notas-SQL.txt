@@ -1,0 +1,129 @@
+Los -- permiten comentar lineas de codigo
+
+
+Ver info:
+
+    show databases; : retorna un registro de todas las bases de datos que mysql se encuentra gestionando
+
+    select nombres-de-columnas  from nombre-de-tabla; (retorna una lista con los registros que se ubican en 
+        las columnas mencionadas, las cuales deben estar en la tabla seleccionada posteriormente)
+        
+        where c2 = 1;   (retorna solamente los registros (de esa tabla) donde la columna seleccionada (la c2,
+        ej=id) sea igual a 1)
+            and c3= algo;   (retorna solamente los registros que cumplan con la primera y segunda condicion)
+
+
+
+TIPOS DE DATOS:
+--------------
+    int=Enteros
+    float=flotantes (Nº con decimales)
+    varchar=textos
+
+
+seleccion de DB:
+---------
+    use nombre-de-DB; (indica que el comando que escribamos a continuacion va a ser utilizado en la base
+        de datos indicada)
+
+CREACION:
+--------
+    Crear una base de datos:
+        create database nombre-de-DB; :crea la base de datos (DB) con el nombre espesificado.
+
+    Crear tabla:
+        create table nombre-de-tabla (
+            id int not null auto_increment, (id=nombre de la columna /init=tipo de dato que va a contener la 
+                columna / not null= indica que el valor no puede ser nulo /auto_increment= indica que el valor
+                sera autoincremental)
+        
+            nombre varchar(255) default null,    (Las columnas de tipo varchar necesitan que entre parentesis 
+                les espesifiquemos el tamaño maximo que puede contener) (El valor de default null no es 
+                necesario espesificarlo cuando utilizamos mysql)
+        
+            PRIMARY KEY (id)    (indicamos a la base de datos que use la columna id como clave primaria)
+        );  (aqui cierra el comando que crea la base de datos)
+
+Insertar datos:
+--------------
+
+    insert into tabla1 (c1, c2) values ("juan", "peres");   (inserta en la tabla espesificada (tabla1):
+        "juan" en la columna 1 (c1) y "peres" en la columna 2(c2))
+
+Modificar datos:
+---------------
+    modifica la "configuracion" de una columna:
+        alter table nombre-tabla modify column nombre-columna int auto_increment;   (indica que en la tabla
+            espesificada queremos modificar la columna mencionada, se le hace contener valores int y que sean
+            autoincrementales)
+
+    modificar registros:
+        update nombre-tabla set c1 = "algo" where id = 1; (actualiza la tabla mencionada para que 
+        en el registro de la columna espesificada (c1) sea igual a lo espesificado, esto ocurre donde 
+        la columna 2(id) sea = a lo espesificado )
+
+                (MySQL actualmente viene con una opcion en la que, para evitar errores, no nos permite modificar
+                o eliminar una fila sin espesificarle un id)
+
+Eliminar datos:
+
+    delete from nombre-lista where id = 1; (elimina de la lista espesificada, todo el registro donde
+        la columna espesificada (id) sea igual a lo espesificado(1))
+
+        (MySQL actualmente viene con una opcion en la que, para evitar errores, no nos permite eliminar
+        o modificar una fila sin espesificarle un id)
+
+Lista de comandos:
+-----------------
+
+    Palabras reservadas:
+        database=base de datos
+        table=tabla
+        column=columna
+    DDL:
+        create=Crear
+        Drop=soltar
+        alter=alterar
+        truncate=truncar
+    
+    DML:
+        select=seleccionar
+        update=actualizar
+        insert=Insertar
+        delete=eliminar
+    
+    DCL:
+        grant=conceder
+        revoke=revocar
+
+     TCL:
+        comit=cometer
+        savepoint=punto de guardado
+        rollback=volver atras
+    Clausulas:
+        from=de/desde
+        group by=agrupar por
+        order by=ordenar por
+        where=donde
+        having=teniendo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
