@@ -99,3 +99,10 @@ Ramificaciones y - de un proyecto:
 
 
 
+Descargar desde git actualizaciones en los archivos:
+    
+    git pull origin main: trae a la carpeta actual los cambios que se encuentran subidos en el
+    servidor de git
+
+
+
